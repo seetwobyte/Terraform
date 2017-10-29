@@ -13,7 +13,7 @@ resource "aws_nat_gateway" "nat-gw" {
 resource "aws_route_table" "main-private" {
     vpc_id = "${aws_vpc.bancroft.id}"
     route {
-        cidr_block = "0.0.0.0/0"
+        cidr_block = "X.X.X.X/X"
         nat_gateway_id = "${aws_nat_gateway.nat-gw.id}"
     }
 
