@@ -1,4 +1,5 @@
 # These are all classic ELB
+# I should change to ALB
 
 resource "aws_elb" "web-elb" {
   name = "web-elb"
