@@ -1,3 +1,5 @@
+# These are all classic ELB
+
 resource "aws_elb" "web-elb" {
   name = "web-elb"
   subnets = ["${aws_subnet.web-a.id}", "${aws_subnet.web-b.id}"]
