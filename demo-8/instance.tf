@@ -59,11 +59,11 @@ resource "aws_instance" "private" {
   }
 }
 
-resource "aws_instance" "dataserver" {
-  ami = "${lookup(var.AMIS, var.AWS_REGION)}"
+resource "Elasticsearch_ubuntu" "dataserver" {
+  ami = "ami-4d202037"
   instance_type = "t2.micro"
   monitoring = true
-  count = 2
+  count = 1
   subnet_id = "${aws_subnet.data-a.id}"
   key_name = "${aws_key_pair.mykeypair.key_name}"
   private_ip = ""
