@@ -70,8 +70,8 @@ resource "aws_instance" "elasticsearch_Ububtu" {
   vpc_security_group_ids = [
     "${aws_security_group.allow-ssh.id}"]
   tags {
-    Name = Ubuntu Instance
-    Purp = Elastic Search
+    Name = "Ubuntu Instance"
+    Purp = "Elastic Search"
   }
 }
 
