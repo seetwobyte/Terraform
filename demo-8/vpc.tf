@@ -15,7 +15,7 @@ resource "aws_vpc" "bancroft" {
 resource "aws_subnet" "public-a" {
     vpc_id = "${aws_vpc.bancroft.id}"
     cidr_block = "10.10.1.0/25"
-    map_public_ip_on_launch = "false"
+    map_public_ip_on_launch = "true"
     availability_zone = "us-east-1a"
 
     tags {

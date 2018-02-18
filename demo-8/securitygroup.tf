@@ -158,6 +158,6 @@ resource "aws_security_group" "Bastion_Host" {
     protocol = "ssh"
     to_port = 22
     cidr_blocks = [
-      "196.52.2.5"]
+      "196.52.2.103"]
   }
   }
