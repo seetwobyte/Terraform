@@ -59,7 +59,7 @@ resource "aws_instance" "private" {
   }
 }
 
-resource "Elasticsearch_ubuntu" "dataserver" {
+resource "aws_instance" "elasticsearch_Ububtu" {
   ami = "ami-4d202037"
   instance_type = "t2.micro"
   monitoring = true
@@ -69,6 +69,10 @@ resource "Elasticsearch_ubuntu" "dataserver" {
   private_ip = ""
   vpc_security_group_ids = [
     "${aws_security_group.allow-ssh.id}"]
+  tags {
+    Name = Ubuntu Instance
+    Purp = Elastic Search
+  }
 }
 
 resource "aws_instance" "Sophos-UTM" {
