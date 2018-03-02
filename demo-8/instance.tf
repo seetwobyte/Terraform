@@ -2,7 +2,7 @@ resource "aws_instance" "example" {
   ami           = "${lookup(var.AMIS, var.AWS_REGION)}"
   instance_type = "t2.micro"
   monitoring = true
-  count = 2
+  count = 6
   # the VPC subnet
   subnet_id = "${aws_subnet.web-a.id}"
   # the security group
@@ -19,7 +19,7 @@ resource "aws_instance" "remote_access" {
   ami = "${lookup(var.AMIS, var.AWS_REGION )}"
   instance_type = "t2.micro"
   monitoring = false
-  count = 1
+  count = 4
   subnet_id = "${aws_subnet.public-a.id}"
   vpc_security_group_ids = [
     "${aws_security_group.allow-ssh.id}"]

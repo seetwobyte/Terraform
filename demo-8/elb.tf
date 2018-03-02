@@ -1,5 +1,6 @@
-# These are all classic ELB
-# I should change to ALB
+#Create Classic Load Balancers
+
+# Web-ELB
 
 resource "aws_elb" "web-elb" {
   name = "web-elb"
@@ -30,7 +31,7 @@ resource "aws_elb" "web-elb" {
 }
 
 
-
+# Private-ELB
 resource "aws_elb" "private-elb" {
   name = "public-elb"
   security_groups = ["${aws_security_group.allow-ssh.id}"]
@@ -59,6 +60,8 @@ listener {
 
   }
 }
+
+# Data-ELB
 
 resource "aws_elb" "data-elb" {
   name = "data-elb"
