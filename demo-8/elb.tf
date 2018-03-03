@@ -5,7 +5,7 @@
 resource "aws_elb" "web-elb" {
   name = "web-elb"
   subnets = ["${aws_subnet.web-a.id}", "${aws_subnet.web-b.id}"]
-  security_groups = ["${aws_security_group.allow-ssh.id}"]
+  security_groups = ["${aws_security_group.ELB-SG.id}"]
   internal = true
 
  listener {
@@ -34,7 +34,7 @@ resource "aws_elb" "web-elb" {
 # Private-ELB
 resource "aws_elb" "private-elb" {
   name = "public-elb"
-  security_groups = ["${aws_security_group.allow-ssh.id}"]
+  security_groups = ["${aws_security_group.ELB-SG.id}"]
   subnets = ["${aws_subnet.private-a.id}","${aws_subnet.private-a.id}"]
   internal = true
 
@@ -65,7 +65,7 @@ listener {
 
 resource "aws_elb" "data-elb" {
   name = "data-elb"
-  security_groups = ["${aws_security_group.allow-ssh.id}"]
+  security_groups = ["${aws_security_group.ELB-SG.id}"]
   subnets = ["${aws_subnet.data-a.id}", "${aws_subnet.data-b.id}"]
   internal = true
 
