@@ -1,8 +1,12 @@
 # Building out the VPC
 
 resource "aws_vpc" "Bancroft_Group" {
-  cidr_block = "10.20.30.0/20"
+  cidr_block = "10.10.0.0/20"
   enable_dns_hostnames = "true"
+    tags {
+      Name = "Bancroft_Group_VPC"
+    }
+
 
 }
 
@@ -22,7 +26,22 @@ resource "aws_route_table" "rtb" {
 }
 
 # route table association
-resource "aws_route_table_association" "" {
+resource "aws_route_table_association" "main" {
   route_table_id = "${aws_route_table.rtb.id}"
-  subnet_id = ""
+  subnet_id = "${aws_subnet.pub_subnet_1.id}"
 }
+
+# Subnets
+
+resource "aws_subnet" "pub_subnet_1" {
+  cidr_block = "10.10.0.0/25"
+  vpc_id = "${aws_vpc.Bancroft_Group.id}"
+  map_public_ip_on_launch = "true"
+  availability_zone = "us-east-1a"
+
+    tags {
+      Name = "PUBLIC_SUBNET"
+
+    }
+}
+
