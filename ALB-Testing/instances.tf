@@ -17,7 +17,34 @@ resource "aws_instance" "Nginx-1" {
 
   }
 
+resource "aws_instance" "Nginx-2" {
+  ami = "${lookup(var.AMIS, var.AWS_REGION)}"
+  instance_type = "t2.micro"
+  monitoring = true
+  count = 1
+  # the VPC subnet
+  subnet_id = "${aws_subnet.pub_subnet_2.id}"
+  # the security group
+  vpc_security_group_ids = ["${aws_security_group.allow_ssh.id}"]
+  # the public SSH key
+  key_name = "${aws_key_pair.linux1.key_name}"
+    tags {
+      Name = "NGINX-2"
+    }
 
+  }
+resource "aws_instance" "Bastion_Host" {
+  ami = "${lookup(var.AMIS, var.AWS_REGION)}"
+  instance_type = "t2.micro"
+  monitoring = true
+  count = 1
+  subnet_id = "${aws_subnet.pub_subnet_1.id}"
+  vpc_security_group_ids = ["${aws_security_group.Bastion_host.id}"]
+  key_name = "${aws_key_pair.linux1.key_name}"
+  tags {
+    Name = "Bastion_Host"
+  }
+}
 
 /*
   provisioner "remote-exec" {
