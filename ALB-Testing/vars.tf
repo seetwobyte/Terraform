@@ -14,5 +14,6 @@ variable "AMIS" {
     us-west-2 = "ami-06b94666"
     eu-west-1 = "ami-844e0bf7"
     #us-east-1 = "Amazon Linux"
+    # us-east-1 = ami-25bd2743 new Cent0S
   }
 }

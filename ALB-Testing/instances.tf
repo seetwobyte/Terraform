@@ -46,11 +46,36 @@ resource "aws_instance" "Bastion_Host" {
   }
 }
 
+resource "aws_instance" "Web_server1" {
+  ami = "${lookup(var.AMIS, var.AWS_REGION)}"
+  instance_type = "t2.micro"
+  monitoring = true
+  count = 1
+  subnet_id = "${aws_subnet.web_subnet_1.id}"
+  vpc_security_group_ids = ["${aws_security_group.allow_ssh.id}"]
+  key_name = "${aws_key_pair.linux1.key_name}"
+  tags {
+    Name = "web_server1"
+  }
+}
+
+resource "aws_instance" "Web_server2" {
+  ami = "${lookup(var.AMIS, var.AWS_REGION)}"
+  instance_type = "t2.micro"
+  monitoring = true
+  count = 1
+  subnet_id = "${aws_subnet.web_subnet_2.id}"
+  vpc_security_group_ids = ["${aws_security_group.allow_ssh.id}"]
+  key_name = "${aws_key_pair.linux1.key_name}"
+  tags {
+    Name = "web_server2"
+  }
+}
 /*
   provisioner "remote-exec" {
     inline = [
     "sudo yum install nginx -y",
-    "sudo service anginx start",
+    "sudo service nginx start",
     ]
   }
   tags {

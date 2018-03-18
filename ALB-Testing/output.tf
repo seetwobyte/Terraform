@@ -12,3 +12,8 @@ output "instance-3" {
   value = "${aws_instance.Bastion_Host.public_dns}"
 }
 
+output "web-elb" {
+  value = "${aws_elb.Web-elb.dns_name}"
+
+}
+

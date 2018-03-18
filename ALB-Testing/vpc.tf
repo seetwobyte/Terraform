@@ -36,7 +36,7 @@ resource "aws_route_table_association" "main" {
 resource "aws_subnet" "pub_subnet_1" {
   cidr_block = "10.10.0.0/25"
   vpc_id = "${aws_vpc.Bancroft_Group.id}"
-  map_public_ip_on_launch = "true"
+  map_public_ip_on_launch = "false"
   availability_zone = "us-east-1a"
 
     tags {
@@ -47,10 +47,31 @@ resource "aws_subnet" "pub_subnet_1" {
 resource "aws_subnet" "pub_subnet_2" {
   cidr_block = "10.10.0.128/25"
   vpc_id = "${aws_vpc.Bancroft_Group.id}"
-  map_public_ip_on_launch = "true"
+  map_public_ip_on_launch = "false"
   availability_zone = "us-east-1b"
 
 tags {
   Name = "PUBLIC_SUBNET"
+}
+}
+resource "aws_subnet" "web_subnet_1" {
+  cidr_block = "10.10.0.0/25"
+  vpc_id = "${aws_vpc.Bancroft_Group.id}"
+  map_public_ip_on_launch = "false"
+  availability_zone = "us-east-1a"
+
+    tags {
+      Name = "Web_subnet1"
+
+    }
+}
+resource "aws_subnet" "web_subnet_2" {
+  cidr_block = "10.10.0.128/25"
+  vpc_id = "${aws_vpc.Bancroft_Group.id}"
+  map_public_ip_on_launch = "false"
+  availability_zone = "us-east-1b"
+
+tags {
+  Name = "web_submet2"
 }
 }
