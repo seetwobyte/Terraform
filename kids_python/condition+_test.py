@@ -1,13 +1,12 @@
 # letter test
 
-pointspossible = 100
+total = 100
 
-score = 75
-
-percent = score / pointspossible
+score = 95
 
 
-print("Percentage is {}".format(percent))
+percent = score / total
+
 
 student = "Scott"
 
@@ -17,3 +16,14 @@ if 1 >= percent >= 0.9:
 elif 0.9 >= percent >= 0.8:
     graade = "B"
 elif 0.8 >= percent >= 0.7:
+    grade = "c"
+elif 0.7 >= percent >= 0.6:
+    grade = "D"
+elif 0.6 >= percent:
+    grade = "F"
+
+print("Percentage is {}".format(percent))
+print("{} - {}".format(student, grade))
+
+
+
