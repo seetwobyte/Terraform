@@ -1,4 +1,4 @@
-# letter test
+# letter test for the grades game 
 
 total = 100
 
