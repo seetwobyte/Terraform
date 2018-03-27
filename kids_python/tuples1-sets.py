@@ -1,4 +1,5 @@
-# Sets an only have one value in a list
+# Sets can only have one value in a list
+# s
 
 days = set(["Monday", "Tuesday", "Wednesday", "Wednesday"])
 
