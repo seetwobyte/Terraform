@@ -1,0 +1,16 @@
+#   Classes and Variables 
+
+class Dog: 
+    "hello"
+    
+    
+dog1 - Dog()
+dog.name = "Fido"
+
+
+dog2 = Dog(
+dog.name = "Sean"
+
+
+Print(dog1.name)
+Print(dog2.name)
