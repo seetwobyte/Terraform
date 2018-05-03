@@ -1,0 +1,15 @@
+# Init
+class Dog:
+
+    def_init_(self, name, age, furcolor):
+        self.name = name
+        self.age = age 
+        self.furcolor = furcolor
+        
+
+dog1 = Dog("Fido", 8, "Brown"
+
+# we can pass in some of the values 
+print(dog1.name)
+
+print(dog1.age) 
